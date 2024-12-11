@@ -1,7 +1,23 @@
+/**
+ * @copyright 2024 Bishal Thapaliya
+ * @license Apache-2.0
+ */
+
+/**
+ * Node modules
+ */
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
+
+/**
+ * Components
+ */
 import App from './App.jsx'
+
+/**
+ * CSS Styles
+ */
+import './index.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
