@@ -14,7 +14,7 @@ const ReviewCard = ({ content, name, imgSrc, company }) => {
     <div className="bg-zinc-800 p-5 rounded-xl min-w-[320px] flex flex-col lg:min-w-[420px]">
       <div className="flex items-center gap-1 mb-3">
         {
-          ratings.map(({ id, icon, style }) => (
+          ratings.map(({ icon, style }, id) => (
             <span className="material-symbols-rounded text-yellow-300 text-[18px]" style={style} key={id}>
               {icon}
             </span>
@@ -27,7 +27,8 @@ const ReviewCard = ({ content, name, imgSrc, company }) => {
       </p>
 
       <div className="flex items-center gap-2 mt-auto">
-        <figure className="img-box rounded-lg" style={{width: 50, height: 50}}>
+      
+        <figure className="img-box rounded-lg" style={{width: 50, height: 50}}> 
           <img 
             src={imgSrc} 
             alt={name} 

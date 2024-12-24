@@ -7,30 +7,35 @@ import ReviewCard from "./ReviewCard"
 
 const reviews = [
     {
+        id: 1,
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aspernatur eveniet quaerat ab mollitia iste fugit laboriosam dignissimos numquam repellendus!',
         name: 'Bishal Thapaliya',
         imgSrc: '/images/people_1.jpg',
         company: 'Bonitasoft'
     },
     {
+        id: 2,
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aspernatur eveniet quaerat ab mollitia iste fugit laboriosam dignissimos numquam repellendus!',
         name: 'Pablo Alonso',
         imgSrc: '/images/people_2.jpg',
         company: 'Por favor'
     },
     {
+        id: 3,
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aspernatur eveniet quaerat ab mollitia iste fugit laboriosam dignissimos numquam repellendus!',
         name: 'Anthony Birembaut',
         imgSrc: '/images/people_3.jpg',
         company: 'FrenchTech'
     },
     {
+        id: 4,
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aspernatur eveniet quaerat ab mollitia iste fugit laboriosam dignissimos numquam repellendus!',
         name: 'Nicolas Chabanoles',
         imgSrc: '/images/people_4.jpg',
         company: 'BPM Network'
     },
     {
+        id: 5,
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aspernatur eveniet quaerat ab mollitia iste fugit laboriosam dignissimos numquam repellendus!',
         name: 'Julien Mege',
         imgSrc: '/images/people_5.jpg',
