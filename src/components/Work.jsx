@@ -96,7 +96,7 @@ const Work = () => {
             </h2>
 
             {/* Filter Options */}
-            <div className="flex justify-center space-x-4 mb-8">
+            {/* <div className="flex justify-center space-x-4 mb-8">
                 {['all', 'landscape', 'portrait', 'event'].map((type) => (
                 <button
                     key={type}
@@ -108,7 +108,7 @@ const Work = () => {
                     {type.charAt(0).toUpperCase() + type.slice(1)}
                 </button>
                 ))}
-            </div>
+            </div> */}
 
             <div className="grid gap-x-4 gap-y-5 grid-cols-[repeat(auto-fill,_minmax(280px,_1fr))]">
                 { filteredImages.map(({id, title, imgSrc, tags, projectLink }) => (
@@ -151,9 +151,12 @@ const Work = () => {
 
         </div>
 
-        <div className="container">
-            <MyWorks />
-        </div>
+        {/* <div className="container">
+            
+
+                <MyWorks />
+            
+        </div> */}
     </section>
   )
 }
