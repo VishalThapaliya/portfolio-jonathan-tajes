@@ -89,7 +89,7 @@ const Work = () => {
         };
     
   return (
-    <section className="section" id="work">
+    <section className="section" id="portfolio">
         <div className="container">
             <h2 className="headline-2 mb-8">
                 My portfolio highlights
