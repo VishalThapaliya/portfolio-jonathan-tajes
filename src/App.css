@@ -40,3 +40,44 @@
 .read-the-docs {
   color: #888;
 }
+
+.reviews-scroll {
+   display: flex;
+   overflow-x: hidden;
+   gap: 1rem;
+   padding-bottom: 1rem;
+   user-select: none;
+   -webkit-user-select: none;
+   scroll-behavior: smooth;
+ }
+
+.reviews-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-btn {
+   background-color: #333;
+   color: white;
+   border: none;
+   padding: 0.5rem 1rem;
+   cursor: pointer;
+   font-size: 1.25rem;
+   transition: background-color 0.3s ease;
+}
+
+.scroll-btn:hover {
+  background-color: #555;
+}
+
+.scroll-btn:disabled {
+   cursor: not-allowed;
+   opacity: 0.5;
+}
+
+.review-card {
+   transition: transform 0.3s ease-in-out;
+}
+
+.review-card:hover {
+ transform: scale(1.05);
+}
