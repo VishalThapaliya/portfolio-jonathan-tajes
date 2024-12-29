@@ -22,7 +22,7 @@ const Skills = () => {
   return (
     <section className="section">
         <div className="container">
-            <h2 className="headline-2">
+            <h2 className="headline-2 reveal-up">
                 Essential Tools I Use
             </h2>
 
@@ -33,7 +33,13 @@ const Skills = () => {
             <div className="grid gap-3 grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))]">
                 {
                     skills.map(({ id, imgSrc, label, desc }) => (
-                        <SkillCard key={id} imgSrc={imgSrc} label={label} desc={desc}/>
+                        <SkillCard 
+                            key={id} 
+                            imgSrc={imgSrc} 
+                            label={label} 
+                            desc={desc}
+                            className="reveal-up"
+                        />
                     ))
                 }
             </div>
