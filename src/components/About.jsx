@@ -11,7 +11,7 @@ const About = () => {
     return (
         <section id="about" className="section">
             <div className="container">
-                <div className="bg-zinc-800/50 p-7 rounded-2xl md:p-12">
+                <div className="bg-zinc-800/50 p-7 rounded-2xl md:p-12 reveal-up">
                     <p className="text-zinc-200 mb-2 md:mb-3 md:text-2xl md:max-w-[80ch]">
                         ¡Bienvenido!
                     </p>

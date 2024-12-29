@@ -91,7 +91,7 @@ const Work = () => {
   return (
     <section className="section" id="portfolio">
         <div className="container">
-            <h2 className="headline-2 mb-8">
+            <h2 className="headline-2 mb-8 reveal-up">
                 My portfolio highlights
             </h2>
 
@@ -113,7 +113,14 @@ const Work = () => {
             <div className="grid gap-x-4 gap-y-5 grid-cols-[repeat(auto-fill,_minmax(280px,_1fr))]">
                 { filteredImages.map(({id, title, imgSrc, tags, projectLink }) => (
                     // <WorkCard key={id} title={title} imgSrc={imgSrc} tags={tags} projectLink={projectLink} onClick={() => openSlider(index)}/>
-                    <WorkCard key={id} title={title} imgSrc={imgSrc} tags={tags} onClick={() => openSlider(id)}/>
+                    <WorkCard 
+                        key={id} 
+                        title={title} 
+                        imgSrc={imgSrc} 
+                        tags={tags} 
+                        onClick={() => openSlider(id)}
+                        className="reveal-up"
+                    />
                 ))}
             </div>
 
