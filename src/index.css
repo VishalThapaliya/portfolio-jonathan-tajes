@@ -20,6 +20,7 @@ body {
 /* -------------------------------- */
 
 .hero-title,
+.headline-1,
 .headline-2 {
     @apply max-w-max;
     background: -webkit-linear-gradient(0deg, #d3d3d3, #a1a1aa);
