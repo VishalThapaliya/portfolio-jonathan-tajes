@@ -127,6 +127,10 @@ const Work = () => {
     setIsCarouselOpen(true);
   };
 
+  const handleBackFromCarousel = () => {
+    setIsCarouselOpen(false);
+  }
+
   const prevImage = () => {
     setCurrentImageIndex(prev => (prev - 1 + selectedSubtype.images.length) % selectedSubtype.images.length);
   };
@@ -194,6 +198,10 @@ const Work = () => {
               {isCarouselOpen ? (
                 /* Carousel View */
                 <div className="relative h-full">
+                <button onClick={handleBackFromCarousel} className="absolute top-4 left-4 text-white text-xl p-2 hover:text-zinc-300 z-10">
+                  ← Back
+                </button>
+
                   <div className="flex items-center justify-center h-[80vh]">
                     <button
                       onClick={prevImage}
@@ -234,6 +242,12 @@ const Work = () => {
                       </option>
                     ))}
                   </select>
+
+                  {!selectedSubtype && (
+                    <div className="w-full flex justify-center items-baseline">
+                      <h2>Select a category to see the images.</h2>
+                    </div>
+                  )}
 
                   {selectedSubtype && (
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">

@@ -43,11 +43,11 @@ const Contact = () => {
         <div className="container lg:grid lg:grid-cols-2 lg:items-stretch">
             <div className="mb-12 lg:mb-0 lg:flex lg:flex-col">
                 <h2 className="headline-2 lg:max-w-[12ch] reveal-up">
-                    Let's connect
+                    Conectémonos
                 </h2>
 
                 <p className="text-zinc-400 mt-3 mb-8 max-w-[50ch] lg:max-w-[30ch] reveal-up">
-                    Reach out today to discuss your project needs and start collaborating on something amazing!
+                    ¡Comuníquese hoy para analizar las necesidades de su proyecto y comenzar a colaborar en algo increíble!
                 </p>
 
                 <div className="flex items-center gap-2 mt-auto">
@@ -77,7 +77,7 @@ const Contact = () => {
                         <label 
                             htmlFor="name" 
                             className="label reveal-up"
-                        >Name</label>
+                        >Nombre</label>
 
                         <input 
                             type="text" 
@@ -94,7 +94,7 @@ const Contact = () => {
                         <label 
                             htmlFor="email" 
                             className="label reveal-up"
-                        >Email</label>
+                        >Correo electrónico</label>
 
                         <input 
                             type="email" 
@@ -113,13 +113,13 @@ const Contact = () => {
                         htmlFor="message"
                         className="label reveal-up"
                     >
-                        Message
+                        Mensaje
                     </label>
 
                     <textarea 
                         name="message" 
                         id="message"
-                        placeholder="Hi! How may I help you?"
+                        placeholder="Hola! ¿En qué puedo ayudarte?"
                         className="text-field resize-y min-h-32 max-h-80 reveal-up"
                         required
                     ></textarea>
@@ -129,7 +129,7 @@ const Contact = () => {
                     type="submit" 
                     className="btn btn-primary [&]:max-w-full w-full justify-center reveal-up"
                 >
-                    Send
+                    Enviar
                 </button>   
             </form>
             

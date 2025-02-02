@@ -99,7 +99,7 @@ const Review = () => {
   return (
     <section className="section overflow-hidden" id="reviews">
       <div className="container">
-        <h2 className="headline-2 mb-8">What people say about me...</h2>
+        <h2 className="headline-2 mb-8">Lo que la gente dice de mí...</h2>
 
         <div className="flex items-center w-full">
           <button

@@ -40,7 +40,7 @@ const sitemap = [
     {
         id: 1,
         label: 'GitHub',
-        href: 'https://github.com/VishalThapaliya'
+        href: 'https://github.com/'
     },
     {
         id: 2,
@@ -55,7 +55,7 @@ const sitemap = [
     {
         id: 4,
         label: 'Instagram',
-        href: 'https://www.instagram.com/vishalthapaliya/'
+        href: 'https://www.instagram.com/'
     },
     {
         id: 5,
