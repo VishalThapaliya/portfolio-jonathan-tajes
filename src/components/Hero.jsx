@@ -28,7 +28,7 @@ const Hero = () => {
                         <span className="relative w-2 h-2 rounded-full bg-emerald-500">
                             <span className="absolute inset-0 rounded-full bg-emerald-500 animate-ping"></span>
                         </span>
-                        Available for work
+                        Disponible para trabajar
                     </div>
                 </div>
 
@@ -37,7 +37,7 @@ const Hero = () => {
                 </h2>
 
                 <div className="flex items-center gap-3">
-                    <ButtonPrimary icon="download" label="Download CV" />
+                    {/* <ButtonPrimary icon="download" label="Download CV" /> */}
                     <ButtonOutline icon="arrow_downward" label="Scroll down" href="#about"/>
                 </div>
             </div>
