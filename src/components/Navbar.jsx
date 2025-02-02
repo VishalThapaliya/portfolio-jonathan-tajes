@@ -14,7 +14,6 @@ const Navbar = ({ navOpen}) => {
         if (!activeBox) {
             return undefined;
         }
-
         
             activeBox.current.style.top = lastActiveLink.current.offsetTop + 'px';
             activeBox.current.style.left = lastActiveLink.current.offsetLeft + 'px';
@@ -42,28 +41,28 @@ const Navbar = ({ navOpen}) => {
 
     const navItems = [
         {
-          label: 'Home',
+          label: 'Inicio',
           link: '#home',
           className: 'nav-link active',
           ref: lastActiveLink
         },
         {
-          label: 'About Me',
+          label: 'Sobre mí',
           link: '#about',
           className: 'nav-link'
         },
         {
-          label: 'Portfolio',
+          label: 'Cartera',
           link: '#portfolio',
           className: 'nav-link'
         },
         {
-            label: 'Reviews',
+            label: 'Reseñas',
             link: '#reviews',
             className: 'nav-link'
         },
         {
-          label: 'Contact',
+          label: 'Contacto',
           link: '#contact',
           className: 'nav-link md:hidden'
         }

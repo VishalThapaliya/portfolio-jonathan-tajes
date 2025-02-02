@@ -5,8 +5,8 @@
 
 const About = () => {
     const aboutData = [
-        {id: 1, number: 50, text: `Projects done`},
-        {id: 2, number: 10, text: `Years of experience`}
+        {id: 1, number: 50, text: `Proyectos realizados`},
+        {id: 2, number: 10, text: `Años de experiencia`}
     ]
     return (
         <section id="about" className="section">

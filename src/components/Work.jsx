@@ -1,171 +1,264 @@
-/**
- * @copyright 2024 Bishal Thapaliya
- * @license Apache-2.0
- */
+import { useState } from 'react';
+import MyWorkCard from './MyWorkCard';
 
-import { useState } from "react";
-import MyWorks from "./MyWorks"
-import WorkCard from "./WorkCard"
-
-/**
- * Work Data
- */
+// const works = [/* your existing works data */];
 const works = [
     { 
-        id: 1, 
-        title: 'Work Title 1', 
-        imgSrc: '/images/home.jpg',
-        tags: ['API', 'MVC', 'Development'],
-        projectLink: 'https://vishalthapaliya.github.io/resume/',
-        type: 'landscape'
+      id: 1, 
+      title: 'Portrait', 
+      imgSrc: '/images/portrait_1.jpg',
+      subtypes: [
+        { 
+          subtype: 'people', 
+          images: [
+            '/images/portrait_1.jpg', 
+            '/images/portrait_2.jpg', 
+            '/images/portrait_3.jpg', 
+            '/images/portrait_4.jpg', 
+            '/images/portrait_5.jpg',
+            '/images/portrait_6.jpg',
+            '/images/portrait_7.jpg',
+            '/images/portrait_8.jpg',
+            '/images/portrait_9.jpg',
+            '/images/portrait_10.jpg',
+            '/images/portrait_11.jpg'
+          ]
+        },
+        { 
+          subtype: 'b&w', 
+          images: [
+            '/images/BN-001.jpg', 
+            '/images/BN-002.jpg', 
+            '/images/BN-003.jpg', 
+            '/images/BN-004.jpg', 
+            '/images/BN-005.jpg', 
+            '/images/BN-006.jpg',
+            '/images/BN-007.jpg',
+            '/images/BN-008.jpg',
+            '/images/BN-009.jpg',
+            '/images/BN-010.jpg',
+            '/images/BN-011.jpg',
+            '/images/BN-012.jpg',
+            '/images/BN-013.jpg',
+          ]
+        },
+        { 
+          subtype: 'wedding', 
+          images: [
+            '/images/WEDDING_1.jpg',
+            '/images/WEDDING_2.jpg',
+            '/images/WEDDING_3.jpg',
+            '/images/WEDDING_4.jpg',
+            '/images/WEDDING_5.jpg',
+            '/images/WEDDING_6.jpg',
+            '/images/WEDDING_7.jpg',
+            '/images/WEDDING_8.jpg',
+            '/images/WEDDING_9.jpg',
+            '/images/WEDDING_10.jpg',
+            '/images/WEDDING_11.jpg',
+            '/images/WEDDING_12.jpg',
+            '/images/WEDDING_13.jpg',
+            '/images/WEDDING_14.jpg'            
+          ] 
+        }
+      ],
+      type: 'portrait'
     },
     { 
         id: 2, 
-        title: 'Work Title 2', 
-        imgSrc: '/images/home.jpg',
-        tags: ['API', 'MVC', 'Development'],
-        projectLink: 'https://vishalthapaliya.github.io/resume/',
-        type: 'event'
+        title: 'Travel', 
+        imgSrc: '/images/travel_1.jpg',
+        subtypes: [
+          { 
+            subtype: 'Myanmar', 
+            images: [
+              '/images/myanmar_01.jpg',
+              '/images/myanmar_02.jpg',
+              '/images/myanmar_03.jpg',
+              '/images/myanmar_04.jpg',
+              '/images/myanmar_05.jpg',
+              '/images/myanmar_06.jpg',
+              '/images/myanmar_07.jpg'
+            ] 
+          },
+            { subtype: 'Indonesia', images: ['/images/BN-001.jpg', '/images/BN-002.jpg', '/images/BN-003.jpg', '/images/BN-004.jpg', '/images/BN-005.jpg', '/images/BN-006.jpg'] },
+            { subtype: 'Africa', images: ['/images/portrait_birds1.jpg', '/images/portrait_birds2.jpg'] }
+        ],
+        type: 'travel'
     },
     { 
         id: 3, 
-        title: 'Work Title 3', 
+        title: 'Awards', 
         imgSrc: '/images/home.jpg',
-        tags: ['API', 'MVC', 'Development'],
-        projectLink: 'https://vishalthapaliya.github.io/resume/',
-        type: 'portrait'
-    },
-    { 
-        id: 4, 
-        title: 'Work Title 4', 
-        imgSrc: '/images/home.jpg',
-        tags: ['API', 'MVC', 'Development'],
-        projectLink: 'https://vishalthapaliya.github.io/resume/',
-        type: 'landscape'
-    },
-    { 
-        id: 5, 
-        title: 'Work Title 5', 
-        imgSrc: '/images/home.jpg',
-        tags: ['API', 'MVC', 'Development'],
-        projectLink: 'https://vishalthapaliya.github.io/resume/',
-        type: 'event'
-    },
-    { 
-        id: 6, 
-        title: 'Work Title 6', 
-        imgSrc: '/images/home.jpg',
-        tags: ['API', 'MVC', 'Development'],
-        projectLink: 'https://vishalthapaliya.github.io/resume/',
-        type: 'portrait'
-    },
-]
+        subtypes: [
+            { subtype: 'sports', images: ['/images/portrait_1.jpg', '/images/portrait_2.jpg', '/images/portrait_3.jpg', '/images/portrait_4.jpg', '/images/portrait_5.jpg'] },
+            { subtype: 'photography', images: ['/images/BN-001.jpg', '/images/BN-002.jpg', '/images/BN-003.jpg', '/images/BN-004.jpg', '/images/BN-005.jpg', '/images/BN-006.jpg'] },
+        ],
+        type: 'awards'
+    }
+  ];
 
 const Work = () => {
-    const [selectedType, setSelectedType] = useState('all');
-    const [isSliderOpen, setIsSliderOpen] = useState(false);
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [selectedType, setSelectedType] = useState('all');
+  const [selectedWork, setSelectedWork] = useState(null);
+  const [selectedSubtype, setSelectedSubtype] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCarouselOpen, setIsCarouselOpen] = useState(false);
 
-    // Filter images based on type
-    const filteredImages = selectedType === 'all' ? works : works.filter(work => work.type === selectedType);
+  const filteredWorks = selectedType === 'all' ? works : works.filter(work => work.type === selectedType);
 
-    const openSlider = (index) => {
-        console.log("clicked");
-        setCurrentImageIndex(index);
-        setIsSliderOpen(true);
-      };
-    
-      const closeSlider = () => {
-        setIsSliderOpen(false);
-      };
+  const handleWorkClick = (work) => {
+    setSelectedWork(work);
+    setIsModalOpen(true);
+    setSelectedSubtype(null);
+    setIsCarouselOpen(false);
+  };
 
+  const handleSubtypeChange = (e) => {
+    const subtype = e.target.value;
+    const selected = selectedWork.subtypes.find(sub => sub.subtype === subtype);
+    setSelectedSubtype(selected);
+    setIsCarouselOpen(false);
+  };
 
-        const prevImage = () => {
-            setCurrentImageIndex((prevIndex) => (prevIndex - 1 + filteredImages.length) % filteredImages.length);
-        };
+  const handleImageClick = (index) => {
+    setCurrentImageIndex(index);
+    setIsCarouselOpen(true);
+  };
 
-        const nextImage = () => {
-            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % filteredImages.length);
-        };
-    
+  const prevImage = () => {
+    setCurrentImageIndex(prev => (prev - 1 + selectedSubtype.images.length) % selectedSubtype.images.length);
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex(prev => (prev + 1) % selectedSubtype.images.length);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedWork(null);
+    setSelectedSubtype(null);
+    setIsCarouselOpen(false);
+  };
+
   return (
-    <section className="section" id="portfolio">
-        <div className="container">
-            <h2 className="headline-2 mb-8 reveal-up">
-                My portfolio highlights
-            </h2>
+    <section id='portfolio' className="section">
+      <div className="container">
+        <h2 className="headline-2 mb-8 reveal-up">Mi portafolio</h2>
 
-            {/* Filter Options */}
-            {/* <div className="flex justify-center space-x-4 mb-8">
-                {['all', 'landscape', 'portrait', 'event'].map((type) => (
-                <button
-                    key={type}
-                    onClick={() => setSelectedType(type)}
-                    className={`px-4 py-2 rounded-lg font-medium ${
-                    selectedType === type ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
-                    } hover:bg-blue-400 hover:text-white`}
-                >
-                    {type.charAt(0).toUpperCase() + type.slice(1)}
-                </button>
-                ))}
-            </div> */}
-
-            <div className="grid gap-x-4 gap-y-5 grid-cols-[repeat(auto-fill,_minmax(280px,_1fr))]">
-                { filteredImages.map(({id, title, imgSrc, tags, projectLink }) => (
-                    // <WorkCard key={id} title={title} imgSrc={imgSrc} tags={tags} projectLink={projectLink} onClick={() => openSlider(index)}/>
-                    <WorkCard 
-                        key={id} 
-                        title={title} 
-                        imgSrc={imgSrc} 
-                        tags={tags} 
-                        onClick={() => openSlider(id)}
-                        className="reveal-up"
-                    />
-                ))}
-            </div>
-
-
-            {/* Image Slider */}
-            {isSliderOpen && (
-                <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-                <button
-                    className="absolute top-4 right-4 text-white text-3xl font-bold"
-                    onClick={closeSlider}
-                >
-                    &times;
-                </button>
-                <button
-                    className="absolute left-4 text-white text-3xl font-bold"
-                    onClick={prevImage}
-                >
-                    &#8249;
-                </button>
-                <div className="relative max-w-screen-lg mx-auto">
-                    <img
-                    src={filteredImages[currentImageIndex].url}
-                    alt="Slider"
-                    className="w-full h-auto rounded-lg shadow-lg"
-                    />
-                </div>
-                <button
-                    className="absolute right-4 text-white text-3xl font-bold"
-                    onClick={nextImage}
-                >
-                    &#8250;
-                </button>
-                </div>
-            )}
-
+        {/* Filter Buttons */}
+        <div className="flex justify-center space-x-4 mb-8">
+          {['all', ...new Set(works.map(work => work.type))].map((type) => (
+            <button
+              key={type}
+              onClick={() => setSelectedType(type)}
+              className={`px-4 py-2 rounded-lg font-medium ${
+                selectedType === type 
+                  ? 'bg-zinc-700 text-zinc-50' 
+                  : 'bg-zinc-400 text-zinc-700'
+              } hover:bg-zinc-600 hover:text-zinc-300`}
+            >
+              {type.charAt(0).toUpperCase() + type.slice(1)}
+            </button>
+          ))}
         </div>
 
-        {/* <div className="container">
-            
+        {/* Work Grid */}
+        <div className="grid gap-4 grid-cols-[repeat(auto-fill,minmax(280px,1fr))]">
+          {filteredWorks.map((work) => (
+            <div
+              key={work.id}
+              className="relative cursor-pointer"
+              onClick={() => handleWorkClick(work)}
+            >
+              <MyWorkCard 
+                title={work.title}
+                imgSrc={work.imgSrc}
+              />
+            </div>
+          ))}
+        </div>
 
-                <MyWorks />
+        {/* Subtype Modal */}
+        {isModalOpen && selectedWork && (
+          <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4">
+            <button 
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-white text-3xl hover:text-zinc-300"
+            >
+              &times;
+            </button>
             
-        </div> */}
+            <div className="bg-zinc-800 rounded-xl p-6 w-full max-w-4xl">
+              {isCarouselOpen ? (
+                /* Carousel View */
+                <div className="relative h-full">
+                  <div className="flex items-center justify-center h-[80vh]">
+                    <button
+                      onClick={prevImage}
+                      className="absolute left-4 text-white text-4xl p-4 hover:text-zinc-300 z-10"
+                    >
+                      ‹
+                    </button>
+                    <img
+                      src={selectedSubtype.images[currentImageIndex]}
+                      alt=""
+                      className="max-h-full max-w-full object-contain"
+                    />
+                    <button
+                      onClick={nextImage}
+                      className="absolute right-4 text-white text-4xl p-4 hover:text-zinc-300 z-10"
+                    >
+                      ›
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                /* Subtype Selection & Grid View */
+                <>
+                  <h2 className="text-3xl font-bold text-zinc-100 mb-6">
+                    {selectedWork.title}
+                  </h2>
+                  <div className="flex flex-row gap-3">
+                  <select
+                    className="w-full bg-zinc-700 text-zinc-100 p-3 rounded-lg mb-6 max-w-max max-h-max
+                      border border-zinc-600 focus:ring-2 focus:ring-blue-500"
+                    onChange={handleSubtypeChange}
+                    value={selectedSubtype?.subtype || ''}
+                  >
+                    <option value="">Select a category</option>
+                    {selectedWork.subtypes.map(subtype => (
+                      <option key={subtype.subtype} value={subtype.subtype}>
+                        {subtype.subtype}
+                      </option>
+                    ))}
+                  </select>
+
+                  {selectedSubtype && (
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                      {selectedSubtype.images.map((image, index) => (
+                        <img
+                          key={image}
+                          src={image}
+                          alt=""
+                          className="w-full h-40 object-cover rounded-lg cursor-pointer
+                            hover:opacity-80 transition-opacity"
+                          onClick={() => handleImageClick(index)}
+                        />
+                      ))}
+                    </div>
+                  )}
+                  </div>
+                  
+                </>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
     </section>
-  )
-}
+  );
+};
 
-export default Work
+export default Work;
