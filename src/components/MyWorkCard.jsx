@@ -21,7 +21,7 @@ const MyWorkCard = ({title, imgSrc, classes }) => {
             <img 
                 src={imgSrc} 
                 alt={title} 
-                className={"img-cover" + classes } 
+                className={"img-cover " + classes } 
                 loading="lazy"
             />
         </figure>
