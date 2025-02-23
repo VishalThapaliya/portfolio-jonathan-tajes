@@ -99,14 +99,14 @@ const works = [
   ];
 
 const Work = () => {
-  const [selectedType, setSelectedType] = useState('all');
+  const [selectedType, setSelectedType] = useState('Todo');
   const [selectedWork, setSelectedWork] = useState(null);
   const [selectedSubtype, setSelectedSubtype] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCarouselOpen, setIsCarouselOpen] = useState(false);
 
-  const filteredWorks = selectedType === 'all' ? works : works.filter(work => work.type === selectedType);
+  const filteredWorks = selectedType === 'Todo' ? works : works.filter(work => work.type === selectedType);
 
   const handleWorkClick = (work) => {
     setSelectedWork(work);
@@ -153,7 +153,7 @@ const Work = () => {
 
         {/* Filter Buttons */}
         <div className="flex justify-center space-x-4 mb-8">
-          {['all', ...new Set(works.map(work => work.type))].map((type) => (
+          {['Todo', ...new Set(works.map(work => work.type))].map((type) => (
             <button
               key={type}
               onClick={() => setSelectedType(type)}
@@ -194,11 +194,11 @@ const Work = () => {
               &times;
             </button>
             
-            <div className="bg-zinc-800 rounded-xl p-6 w-full max-w-4xl">
+            <div className="bg-zinc-800 rounded-xl p-6 h-full max-h-4xl w-full max-w-4xl">
               {isCarouselOpen ? (
                 /* Carousel View */
                 <div className="relative h-full">
-                <button onClick={handleBackFromCarousel} className="absolute top-4 left-4 text-white text-xl p-2 hover:text-zinc-300 z-10">
+                <button onClick={handleBackFromCarousel} className="absolute top-4 left-4 text-white text-sm p-2 hover:text-zinc-300 z-10">
                   ← Back
                 </button>
 
@@ -235,7 +235,7 @@ const Work = () => {
                     onChange={handleSubtypeChange}
                     value={selectedSubtype?.subtype || ''}
                   >
-                    <option value="">Select a category</option>
+                    <option value="">Seleccione una categoría</option>
                     {selectedWork.subtypes.map(subtype => (
                       <option key={subtype.subtype} value={subtype.subtype}>
                         {subtype.subtype}
@@ -245,12 +245,12 @@ const Work = () => {
 
                   {!selectedSubtype && (
                     <div className="w-full flex justify-center items-baseline">
-                      <h2>Select a category to see the images.</h2>
+                      <h2>Seleccione una categoría para ver las imágenes.</h2>
                     </div>
                   )}
 
                   {selectedSubtype && (
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full">
                       {selectedSubtype.images.map((image, index) => (
                         <img
                           key={image}

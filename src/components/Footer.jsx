@@ -8,30 +8,31 @@
 */
 import { ButtonPrimary } from "./ButtonPrimary";
 
+const currentYear = new Date().getFullYear();
 const sitemap = [
     {
         id: 1,
-        label: 'Home',
+        label: 'Inicio',
         href: '#home'
     },
     {
         id: 2,
-        label: 'About',
+        label: 'Sobre mi',
         href: '#about'
     },
     {
         id: 3,
-        label: 'Work',
+        label: 'Cartera',
         href: '#work'
     },
     {
         id: 4,
-        label: 'Reviews',
+        label: 'Reseñas',
         href: '#reviews'
     },
     {
         id: 5,
-        label: 'Contact me',
+        label: 'Contacto',
         href: '#contact'
     }
   ];
@@ -71,12 +72,12 @@ const Footer = () => {
             <div className="lg:grid lg: grid-cols-2 reveal-up">
                 <div className="mb-10">
                     <h2 className="headline-2 mb-8 lg:max-w-[12ch] reveal-up">
-                        Let&apos;s work together today!
+                        ¡Trabajemos juntos hoy!
                     </h2>
 
                     <ButtonPrimary
                         href="mailto:bibi4photos@gmail.com"
-                        label="Start project"
+                        label="Iniciar proyecto"
                         icon="chevron_right"
                         className="reveal-up"
                     />
@@ -136,7 +137,7 @@ const Footer = () => {
                 </a>
 
                 <p className="text-zinc-500 text-sm reveal-up">
-                    &copy; 2024 <span className="text-zinc-200">Jonathan Tajes</span>
+                    &copy; { currentYear } <span className="text-zinc-200">Jonathan Tajes</span>
                 </p>
             </div>
         </div>
